@@ -1,0 +1,4 @@
+sudo mkdir -p /mnt/efs
+
+
+sudo mount -t efs fs-0595bad932aacd087:/ /mnt/efs
