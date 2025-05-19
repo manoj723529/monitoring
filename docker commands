@@ -1,0 +1,30 @@
+how to pull a docker image
+how to list out the pulled images
+how to run a container using the pulled image
+how can we access the applications
+how can we enter into the application
+how can we stop the container--->application 
+
+
+
+
+
+image----multiple applications
+
+jebkins/Jenkins:jdk17---->same
+
+changing the containername and portnumbers
+-----------------------------------------------------------------
+
+docker system info
+
+
+docker run --name j1 -p 8081:8080 Jenkins/Jenkins:jdk17---------it will run on forground
+
+docker ps 
+
+docker ps -a
+
+docker rm -f containername1 containername2
+
+docker rmi imagename1 imagename2
