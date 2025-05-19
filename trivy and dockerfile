@@ -10,8 +10,13 @@ critical
 high
 low
 
+trivy image myimg:v1
+
+
 pom.xml
 package.json
+
+
 
 
 dependencies
