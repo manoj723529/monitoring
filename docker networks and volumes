@@ -1,0 +1,92 @@
+docker network create --driver=bridge --subnet=192.168.0.0/24 192_network
+
+docker network create --driver=bridge my_network
+
+
+IP's = 2 power32 minus 24 = 2 power 8
+
+
+256 IP's
+
+
+docker network ls
+
+docker run --name j2 -d -p 8080:8080 --network 192_network Jenkins/Jenkins:jdk17
+
+docker inspect j2
+
+docker ps
+
+docker rm $(docker ps -aq) -f----delete all con tianer
+
+docker network prune
+
+
+developer ----testingOk
+
+email
+
+code---
+
+jenkinsfile
+
+
+devops engineer most work
+
+1.deployment
+2.troubleshooting
+2.upgrades
+4.terraform
+
+terraform k8s Jenkins aws
+
+docker volumes
+
+1.ananymous volume
+2.named volumes
+3.bind volumes
+
+
+when you run container ----volume---/var/lib/docker---/volumes
+
+
+2345645adfg
+
+
+docker volume create myvol
+
+docker volume ls
+
+docker volume --help
+
+docker inspect myvol
+
+Dockerfile
+optimisation
+docker-compose----u need to concentrate in this three
+
+
+bindvolumes
+
+
+1.when you run a container and delete that container -----the data present in that application is also lost we are going to use persistent volume
+
+docker rm -f containername
+
+sudo mkdir /opt/Jenkins
+
+cd /opt
+
+ls -l
+
+sudo chown ubuntu: Jenkins
+
+cd
+
+docker run --name j3 -d -p 8080:8080 -v /opt/Jenkins:/var/jenkins_home Jenkins/Jenkins:jdk17
+
+docker ps
+
+bind volumes
+
+even through you delete the container data loss
