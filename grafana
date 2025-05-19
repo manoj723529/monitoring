@@ -74,4 +74,6 @@ eksctl delete cluster --name magneq1
 
 prom-operator
 
+https://api.slack.com/apps/A08SKMCNV9D/incoming-webhooks?success=1
+
 
