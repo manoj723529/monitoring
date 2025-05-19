@@ -1,0 +1,33 @@
+monolithic applications
+microservice applications
+
+
+docker compose
+
+
+
+version: '3.8'
+services:
+  backend:
+    build:
+      context: ./backend
+    ports:
+      - "3000:3000"
+    volumes:
+      - ./backend:/usr/src/app
+
+  frontend:
+    build:
+      context: ./frontend
+    ports:
+      - "8080:80"
+    volumes:
+      - ./frontend:/usr/src/app
+
+
+docker compose up---->docker-compose.yaml
+
+services
+
+find where docker files----> image---> containers
+
