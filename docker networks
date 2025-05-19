@@ -1,0 +1,60 @@
+docker networks
+
+when you install docker
+
+1.bridge
+2.host
+3.none
+
+docker network ls----list of volumes
+
+when u run container---bridge
+
+docker inspect containerid/containername
+
+how can I run a container in host network
+
+
+
+docker run --name cname -d --network host Jenkins/Jenkins:jdk17
+
+when you are running in host network
+
+default
+
+
+are we supposed to mention the port number when you are running container in host network
+
+how can I delete all running containers at once forcefully
+
+docker rm -f $(docker ps -aq)
+
+docker exec --user root -it Jenkins /bin/bash
+
+apt install iputils-ping -y  
+
+can I disconnect from bridge network and connect to none network---yes
+
+you cannot connect or disconnect to host network
+
+docker network --help
+
+if you want to disconnect from bridge network you need to use this command
+
+docker network disconnect bridge Jenkins
+
+docker network connect none Jenkins
+
+can I create a bridge network---yes 
+
+docker network create --driver=bridge anji-bridge
+
+can I create host or none network---no
+
+docker network rm anji-bridge
+
+docker network prune
+
+docker volume prune
+
+docker system prune
