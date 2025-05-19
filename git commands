@@ -34,3 +34,53 @@ For head number – git reflog
 31.git tag – to see list of tags
 32.git remote add <name> - creates new connection in local repository
 33.merging conflict – replace the last commit with staged changes and last commit combined
+
+git log --since=3days
+
+git log --max-count=3----last 3 commits will show
+
+git log filename
+
+git log --author=Shiva0228----to see logs of shiva0228
+
+git log --since=2024-01-01 --until=2024-12-31
+
+git pull = git fetch + git merge
+
+git pull ----it will pull the changes from GitHub and saves the changes in local or WD
+
+git fetch------just it will show changes from GitHub to local repo
+
+
+git stash
+
+git stash is not worked for the untracked files
+it will for existing file only
+
+applicable to the file which is already having some data
+
+
+
+
+git stash pop stash@{1}
+
+it will delete from the stash list it going to apply changes
+
+ git restore --staged filey-----get back from staged to working directory
+
+git tag --list----list out tags
+
+git push origin v2.2.2
+
+git push origin --delete v1.1.1----it will delete tag in GitHub account only
+
+git tag --delete v1.1.1----it will delete tag in local repository 
+
+
+git branch ---to see all branches
+git branch branchname-----to create new branch
+git checkout branchname----to switch one branch to other branch
+git branch -d branchname----to delete one branch
+git checkout -b branchname head number
+
+for head number - git reflog
