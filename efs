@@ -1,4 +1,7 @@
-sudo mkdir -p /mnt/efs
-
-
-sudo mount -t efs fs-0595bad932aacd087:/ /mnt/efs
+sudo apt install -y nfs-common
+sudo kill -9 1897
+sudo rm /var/lib/dpkg/lock-frontend
+sudo rm /var/cache/apt/archives/lock
+sudo dpkg --configure -a
+sudo apt update
+sudo apt install -y nfs-common
