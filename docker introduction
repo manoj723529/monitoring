@@ -1,0 +1,50 @@
+docker--------
+
+
+containeraization tool
+
+
+application will be running inside container
+
+
+
+image---->container
+
+docker image---->application is packaged inside the image
+
+image----run---container---application
+
+docker build--->create a image
+image---->container
+
+
+
+virtualisation and containerisation
+
+application--->
+
+
+different os ---->
+
+
+windows--->Linux macos chromeos
+
+windows----guest os
+
+
+Linux macos and chromeos ---guestos
+
+docker architecture
+
+
+dockerhost---where you install docker engine
+dockerclient---where you run the docker commands
+daemon---API---req res
+
+
+registry----where docker images are stored
+
+
+
+images---official
+custom images  dockerhub
