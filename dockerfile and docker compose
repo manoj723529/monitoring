@@ -1,0 +1,89 @@
+FROM
+
+COPY
+WORKDIR
+EXPOSE
+
+
+
+
+CMD
+ENTRYPOINT
+
+
+to start or stop the application
+
+npm start
+
+CMD ["command" "value"]
+
+CMD ["npm" "start"]  
+
+
+
+
+two users
+
+
+ubuntu
+
+root
+
+USER root
+RUN apt install git
+RUN apt install maven
+USER ubuntu
+
+
+COPY
+
+ADD
+
+
+COPY------------files docker host container
+
+ADD --------------unarchive----extract
+
+difference between copy and add in dockerfile---google search---docker
+------------------------------------------
+
+
+docker compose      
+
+monolithic
+
+microservice
+
+application----100 microservices
+
+
+100 microservices = 100 Dockerfiles--->build 100 docker images
+
+docker run---->
+
+
+docker run----> 100 times
+
+using one file
+
+100 microservices---->
+
+
+run multiple containers and it can also stop multiple containers at once
+
+docker-compose up
+
+docker-compose down
+
+
+
+
+
+
+docker-compose down
+
+docker-compose will docker-compose.yaml
+
+version
+context
+service
