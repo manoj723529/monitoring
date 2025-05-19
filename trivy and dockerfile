@@ -1,0 +1,148 @@
+security tools you have used
+
+1.sonarqube as SAST----static application security testing---source code
+2.trivy is mostly used scan the docker images
+
+CVD----centralized vulnability database----image----vulnerabilities
+
+
+critical
+high
+low
+
+pom.xml
+package.json
+
+
+dependencies
+
+docker image
+
+docker scout---->scan Docker images
+
+
+
+
+
+outdated plugins
+
+plugins-----official plugins
+
+de
+
+
+
+
+
+can we scan an image without pulling it
+
+
+docker file
+
+build
+
+docker build -t myimg:v1
+
+vulnerabilities
+
+SonarQube
+
+
+image-----------
+
+security----data privacy
+
+
+security----
+
+
+------------------------------------------------------------
+
+FROM 
+COPY
+WORKDIR
+
+to start or stop the application
+
+npm start
+
+
+CMD ["command" "value"]
+
+CMD ["npm" "start"]
+
+
+two users
+
+ubuntu
+
+root
+
+USER root
+RUN apt install git
+RUN apt install maven
+USER ubuntu
+
+
+COPY
+
+
+
+ADD
+
+COPY ---files docker host to container
+
+
+
+ADD ----extract the files
+
+
+diiference between copy and add in dockerfile
+
+
+tar -xvf file.tar.gz
+
+
+-----------------------------------------------------
+docker compose
+
+
+
+monolithic
+
+microservice-----100 microservices
+
+
+
+100 conatiners
+
+
+
+by using docker compose u can run multiple containers at once and delete multiple containers at once
+
+docker compose up
+
+docker compose down
+
+
+docker compose will have docker-compose
+
+version
+context
+service
+
+Dockerfile
+
+docker build -t myimage:v1
+
+. ---->  the dockerfile is present in the current directory by using that build image
+
+
+
+context----path---->dockerfile is present
+
+docker compose build 
+docker compose up -d
+docker compose down
+
+
