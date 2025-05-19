@@ -1,0 +1,24 @@
+https://medium.com/@prudhvisurya.devops2019/nginx-configuration-for-static-webpage-and-database-4fa391224225
+
+1.RDS----Database
+
+
+
+user register----database table
+
+
+database-1.cpaiuo8a88vd.ap-southeast-1.rds.amazonaws.com
+
+anji103.
+
+admin
+
+mysql -h database-1.cpaiuo8a88vd.ap-southeast-1.rds.amazonaws.com -u admin -p
+
+show tables;
+
+
+select * from users;
+
+frontend(HTML CSS JS NodeJS) and backend(MYSQLdatabase)---deploy---aws server
+
