@@ -1,0 +1,86 @@
+why do we need to develop the software
+
+software
+
+1.solutions---transactions
+2.time-----seconds
+3.Records----
+
+money---bank--->
+
+pp or gpay ----->transactions---
+
+BMS---ticketing---
+
+IDEA---transactions 
+    ----ticketing
+
+SBC----->
+
+companies----SBC PBC----
+PBC---product---pay something
+
+
+SBC---->
+
+
+client---PP---> 1.DA to a good SBC
+2.IDA------>SBC---->tcs(5) cap(6) cog 4.5 wipro 7
+
+TCS
+
+1.RG---->client wants it is noted by TCS(M L and 
+2.plan and desgin----
+
+pan----estimation---time dev
+design----documentation
+HLD----M L 
+LLD--Developers--DF
+3.Develop---LLD---
+4.Testing
+
+
+Automation
+manual
+
+UT IT PT and CT
+
+UT_--part of application
+IT----entire application
+PT-----users inc app changes
+CT(compatability testing)----devices
+
+5.deploy
+6.maintainence
+
+
+
+
+Dev----to dev app
+Test----to test app
+Oper----to deploy app once testing
+support-----
+
+
+security
+
+
+
+
+devops
+
+
+1.deployment of application in servers
+
+
+2.security devsecops = devops + security
+
+
+3.configurations
+
+4.logs and troubleshoot
+
+5.HA of application ---HS and VS
+
+
+
