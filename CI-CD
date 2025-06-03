@@ -1,0 +1,35 @@
+build
+test 
+release---
+deploy
+
+CICD----
+
+Jenkins
+
+
+Cintegration-----------plan code build test----
+cdelivery-------------nonprod regions
+cdeployment-----production
+
+
+Dev
+testing-----UAT and SIT---user acceptance testing and system integration testing
+Production
+
+dev----code develop
+
+UAT----testings---->user acceptance testing
+
+SIT-----testing---->system integration testing
+preprod-----delivery
+
+https://awsdevops.loamaaskillhub.com/----production--v1.1.1
+
+next release-----plan----cdelivery----higher vesrion----v2.2.2
+
+DEV----UAT---SIT---Preprod---cdelivery---v2.2.2(release code)
+
+DEV---UAT----SIT---prod----cdeployment---v1.1.1(current live version)
+
+v2.2.2--------testings--->ok---->date---->sprints---->approval
