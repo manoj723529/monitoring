@@ -1,0 +1,479 @@
+I. File hierarchy commands
+
+1. /
+2. /root
+3. /home
+4. /usr
+5. /tmp
+6. /bin
+7. /sbin
+8. /proc
+9. /lib
+10. /opt
+11. /var
+12. pwd	------present working directory
+13. ls 	------shows the list of files,directories and applications present in the current directory
+14. ls -a ----it gives us the whole list of directories including hidden files 
+15. ls -l ----if gives us the long list of all thing present in that directory
+16. ls -l {file name} ----shows long list of that particular file
+17. ls -lr ------gives the list in reverse order
+18. ls -li 
+19. ls -ld {directory name} ------to see the permissions of that directory
+20. ls -R  --------shows the list of files in tree structure
+21. ls -1 {-1} --------This option specifies the single column format for listing, which is also known as "one entry per line."
+
+Basic commands
+1. File creating commands
+a. cat
+	cat > {file name}
+		creates a file ,if file already exists it over writes that file
+	cat >> {file name} 
+		this is used to add additional data into the file
+	cat {file name} 
+		this is used to display content present in that file
+	cat {source file} >> {destination file}
+		copies the content in source file and add the data to destination file with changing the destination file data
+b. touch 
+	touch {file name}
+		used to create an empty file
+c. vi
+	vi {file name}		creates a file
+		write data if file is created
+
+	vi {file name}		if file already exists, first use "i" then it changes to insert mode
+		modify or add data
+	press {esc,shift,:} then "w" to save and "q" to quit from that file
+				or
+		use "x" to save and quit at a time
+
+	vi commands:
+		press "esc" to get into command mode
+		1. "gg" : cursor moves to first line of that file
+		2. "G" : cursor moves to last line of that file
+		3. "w" : cursor moves word by word forward
+		4. "nw" : cursor moves "n" number of words forward (n must be a natural number)
+		5. "b" : cursor moves word by word backward
+		6. "nb" : cursor moves "n" number of words backward (n must be a natural number)
+		7. "u" : it is used undo the modifications before saving the file (if file is saved we cannot undo it)
+		8. "U" :
+		9. "yy" : it is used to copy the line where cursor is present
+		10. "nyy" : it is used to n number of lines starting from the cursor's position
+		11. "p" : it is used to paste the content below the cursor position
+		12. "P" : it is used to paste the content above the cursor position
+		13. "dw" : deletes word by word
+		14. "x" : deletes letter by letter
+		15. "dd" : deletes line by line
+		16. "ndd" : deletes "n" number of lines
+		17. "/{word u want to search}" : highlights that word 
+
+	vi Insert commands:
+		1. "i" : insert starts at cursor position
+		2. "I" : insert starts at the begining of the line
+		3. "a" : insert at next word of cursor position
+		4. "A" : insert at end of the line
+		5. "o" : insert at below cursor position
+		6. "O" : insert at above cursor position
+
+	vi Extended commands:
+		1. "se nu" : sets numbers to the lines in that file
+		2. "se nonu" : to remove the numbers for the lines
+
+
+
+
+II. File operating commands
+
+a. Copy command
+	a1. copying file content to another file
+		cp {file name1} {file name2}
+			source	  destination
+
+	a2. copying file to a directory
+		cp {file name} {directory name}
+			source   destination
+
+	a3. copying directory to another directory
+		cp {directory name1} {directory name2}
+			source		destination
+
+	a4. copying file or directory to another path
+		cp {source path of a file} {destination path}
+
+	a5. copying one directory to another location
+
+		cp -r {directory name1} {directory name2}
+			directory	   destination
+	
+		cp -rvfp {directory name1} {directory name2}		this displays a message while copying directories 
+				directory	destination
+			message displayed while copying --- 'dir1/file2' -> 'dir2/dir1/file2'
+
+	a6. copying content of one file and storing it to another
+		
+		cp -b --copy-contents {source file} {destination file}
+
+b. Move command
+	b1. moving files 
+		mv {file name} {directory name}
+
+	b2. moving file to directory
+		mv {file name} {directory name}
+
+	b3. moving files or directories from a location to another
+		mv {source path of file or directory} {destination path}
+
+	b4. renaming files
+		mv {old name} {new name}
+
+	b5. moving one directory into another
+		mv {directory1} {directory2}
+			source	   destination
+
+	b6. renaming directory
+		mv {old name} {new name}
+
+
+
+
+c. making directory command
+
+	c1. creating single directory
+			mkdir {directory name}
+
+	c2. creating multiple directories
+			mkdir {directory1} {directory2} {directory3} ....
+	
+	c3. creating 'n' number of directories 
+			mkdir <directory name>{1..n}	'n' specifies noof directories to be created
+	
+	c4. creating nested directories
+			mkdir -p {parent directory}/{child directory}/...
+
+
+
+
+d. Remove command
+	
+	d1. removing files
+			rm {file name}
+
+ 	d2. deleting an empty directory
+			rmdir {directory name}
+
+	d3. deleting the directory which has content init
+			rm -rf {directory name}		-rf refers to recursively forcefully
+	
+	d4. deleting 'n' number of directories
+			rmdir <directory name>{1..n}
+
+	
+
+
+e. grep command
+		grep :- global regular expression print
+		grep [option] [pattern] {file name}
+
+	 e1. finding pattern without case sensitive	
+		gerp -i [pattern] {file name}
+
+	 e2. getting the content which does not match the pattern
+		grep -v	[pattern] {file name}
+
+f. fitering commands
+		f1. head
+			head -n {file name} 	prints first "n" lines from that file
+		f2. tail
+			tail -n {file name} 	prints last "n" lines from that file
+		f3. sort
+			f3.1 sort {file name}
+			f3.2 sort -r {file name}  -----reverse order
+			f3.3 sort {file name} -n  -----numeric sort 
+		f4. sed
+			sed s/{word}/{replace word}/g {file names}
+		f5. cut
+			cut -b {position of the letter we need to cut} {file name}
+
+g. tee command
+
+		using 'cat' command we can copy content from one file to another file but we cannot see the output that what content is copied
+
+		by using 'tee' command we will get the output
+
+		cat {file name} | tee {file name}	if destination file already exists it overwrites that file
+			source         destination
+
+		cat {file name} | tee -a {file name}	[-a] represents that add the data at the end of the file
+			source		destination
+
+h. cd command
+		h1. it is used to change the directory
+			cd <path of the directory> 
+		h2. to change one level back
+			cd ..
+		h3. to change two level back
+			cd ../..
+		h4. to change to last working directory
+			cd -
+		h5. to change to home directory
+			cd ~
+
+
+i. creating user 
+		i1. adduser
+		i2. useradd
+
+j. creating group 
+	gpasswd [options] {user names} {group name}
+		j1. groupadd {group name}
+		j2. adding multiple users to group
+			gpasswd -M {user names} {group name}
+			
+		j3. adding single user to group
+			gpasswd -a {user name} {group name}
+
+		j4. changing user as admin
+			gpasswd -A {user name} {group name}
+
+				there will be only one admin to a group, if we change another user as admin the previous admin is converted as user and the new one is appointed as admin
+
+		j5. deleting user
+			gpasswd -d {user name} {group name} 
+
+cat etc/os-release
+
+mkdir -p dir1/dir2/dir3
+
+tree .
+
+mkdir -pv p1/p2/p3
+
+rm -rf * or rm -rf *1
+
+tac filename ---- reverse order
+
+!501 - if you want to execute command in history use this command
+
+
+
+
+
+wsl --install -d ubuntu
+
+
+OS - windows chromebook mac ios android
+
+Linux 
+
+Debian --- ubuntu kalilinux Debian (apt)
+
+RPM ---- centos fedora amazonlinux redhat suse (yum)
+
+
+/ (Root): The top-level directory. Everything starts here.
+
+/home: Where personal files and directories for users are stored. For example, /home/username is your private space.
+
+/bin: Contains essential programs (binaries) needed to use the system, like ls and cat.
+
+/etc: Holds configuration files and settings for the system and software.
+
+/var: Stores files that change frequently, like logs or temporary data.
+
+/usr: Houses additional software and libraries (things you install later).
+
+/tmp: Temporary files, which are deleted automatically after a while.
+
+/dev: Contains files that represent hardware devices, like disks and printers.
+
+/lib: Stores libraries (code that other programs use).
+
+/proc: A virtual directory showing system information, like memory and CPU stats.
+
+
+
+
+Linux directory structure
+
+
+bin ------- all Linux commands work because of bin
+dev-------storage
+home-----when u add a user a directory with the same name of usr is created in /home
+/etc --- configuration files ----save /etc/shadow
+/boot -----booting process---shutdown----booting process----available
+/media----audio video----
+/opt----third party applications
+/tmp----directory where everyone has full access
+/var--------varying ----log files
+
+Linux commands
+
+1.file management commands
+2.fille permission commands
+3.user management 
+4.process------------(ps top kill)
+5.storage-------------------(df -h)
+6.network-----------------(ifconfig)
+7.package-------------------------(ping ifconfig)
+
+rm a*
+rm b*
+
+touch 1a 1b 1c 1d 1e -----rm 1*
+
+touch abanji bcanji cdanji----rm ab*
+
+snap install tree
+
+mkdir -pv p1/p2/p3
+
+rm filename ---remove  file
+rm -rf----------------delete non-empty directory
+rmdir ----------remove empty directory
+tac fiename-------------reverse order
+
+
+grep -n anji filename ----with number it will display
+grep -o anji filename ----only display pattern not entire line
+grep -i anji filename -----ignores case senitetive
+grep -v anji filename>newfilename----------------it will copy all data from filename expect you enter data
+grep -in anji filename------both ignore and display number
+
+
+wc -l filename ---lines count
+wc -w filename----------words count
+wc -c filename ----------character count
+
+
+sed -n '1,3p' filename----------it will print 1 to 3 lines
+head -10 filename 
+sed -n '6,10p' filename
+
+i----delete
+
+sed -n '$p' filename-----------last line print
+sed -n '1p' filename-----------1st line print
+sed -i '1,5d' filename -----------------delete 1st 5 lines
+sed -i '$d' filename-----delete last line
+
+zip tar gzip
+
+files
+file plus dir(empty)
+files plus nonempty dir
+
+
+zip myfiles.zip file1 file2----------
+zip -r myfile.zip file1 dirl file2 dir2
+
+zip -r myfile.zip files dirl
+
+
+zip -r myfile.zip d1 d2 d3
+
+apt install zip -y
+
+zip myfile.zip f1 f2
+
+unzip myfile.zip
+
+-r ----if you not use -r then directory data is not zipped 
+
+root@singamsetty-anjaneyulu:~# id anji
+uid=1001(anji) - 
+gid=1001(anji)  -----primary or default group of user
+groups=1001(anji),100(users)---secondary group of user
+
+
+usermod -aG groupname username ---added in the secondary group 
+
+usermod -g groupname username----added in the primary group
+
+userdel username
+groupdel groupname
+
+
+chmod 
+chown
+
+tar and gzip -----file related commands
+
+gzip ---used for compressing only files
+
+tar ----it will compress more size
+
+tar -cvf filename.tar filenames
+c----compress
+v----verpose
+f--------file
+
+after using tar if you want to compress u need to use gzip
+
+tar -xvf filename -----extract command
+
+
+if a normal user wants to use sudo command he should be in sudo group
+
+usedmod -aG sudo username
+
+file or directory
+
+I only userowner change
+II only groupowner change
+III both owners change
+
+
+sudo chown username filename
+sudo chown :groupname filename
+sudo chown username:groupname filename
+
+
+chmod
+
+sudo usermod -L username ----to lock user
+sudo passwd -l username
+
+sudo usermod -U username---to unlock user
+sudo passwd -u username
+
+
+
+df -h ----entire operating system disk usage
+du -h ----files or directories 
+top ------processes
+
+ping ----internet connectivity and connectivity between two servers
+ifconfig-------ip address
+ip addr show----ip address
+dig--------------dns related
+traceroute------------to traceroute ip
+curl-----https://www.google.com---- shows html page 
+wget------to get the files in to server
+free -h
+
+
+systemctl status Jenkins
+systemctl stop Jenkins
+
+service Jenkins stop
+
+find
+crontab
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+Host YourInstanceName  # A name for your connection
+    HostName YourPublicIPAddressOrDNS  # IP address or DNS of your AWS instance
+    User ubuntu  # The username for your AWS Ubuntu instance (usually "ubuntu")
+    IdentityFile /path/to/your/private/key.pem  # Path to your SSH private key
+			
