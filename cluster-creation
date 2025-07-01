@@ -1,0 +1,49 @@
+cluster
+
+    1 sudo apt update -y
+        sudo apt update
+        sudo apt install curl unzip
+        curl "https://awscli.amazonaws.com/awscli-exe-linux-x86_64.zip" -o "awscliv2.zip"
+        unzip awscliv2.zip
+        sudo ./aws/install
+    2  curl "https://awscli.amazonaws.com/awscli-exe-linux-x86_64.zip" -o "awscliv2.zip"
+    3  sudo apt install zip -y
+    4  unzip awscliv2.zip
+    5  sudo ./aws/install
+    6  /usr/local/bin/aws --version
+    7  vim ~/.bashrc
+    8  # Add this line at the end:
+    9  export PATH=$PATH:/usr/local/bin/
+   10  source ~/.bashrc
+   11  aws --version
+
+   17  # Download latest stable kubectl
+   18  curl -LO "https://dl.k8s.io/release/$(curl -Ls https://dl.k8s.io/release/stable.txt)/bin/linux/amd64/kubectl"
+   19  # Download latest kops (v1.28.0 as of June 2025)
+   20  curl -LO https://github.com/kubernetes/kops/releases/download/v1.28.0/kops-linux-amd64
+   21  chmod +x kubectl kops-linux-amd64
+   22  sudo mv kubectl /usr/local/bin/
+   23  sudo mv kops-linux-amd64 /usr/local/bin/kops
+   24  kubectl version --client
+   25  kops version
+   26  aws configure
+
+   37  aws s3api create-bucket \
+  --bucket anji8186.k8s.local \
+  --region ap-southeast-1 \
+  --create-bucket-configuration LocationConstraint=ap-southeast-1
+
+   38  aws s3api put-bucket-versioning --bucket anji8186.k8s.local --region ap-southeast-1 --versioning-configuration Status=Enabled
+   38.1  export KOPS_STATE_STORE=s3://anji8186.k8s.local
+
+   39  kops create cluster   --name=anji8186.k8s.local   --zones=ap-southeast-1a   --node-count=4   --node-size=t3.medium   --master-size=t3.medium   --dns=none   --yes
+   40  kops get cluster
+   41  kops update cluster --name anji8186.k8s.local --yes --admin
+       kops rolling-update cluster --cloudonly
+   42  kops rolling-update cluster
+   43  kubectl get nodes
+
+
+
+delet
+vpc,s3 buckets, loadbalancers, auto scaling, volumes, security groups
