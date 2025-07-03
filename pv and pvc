@@ -1,0 +1,80 @@
+sudo mkdir -p /opt/jenkins_data
+sudo chown -R ubuntu:ubuntu /opt/jenkins_data
+
+
+
+
+
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: jenkins
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: jenkins1
+  template:
+    metadata:
+      labels:
+        app: jenkins1
+    spec:
+      containers:
+        - name: jenkins1
+          image: jenkins/jenkins:lts
+          ports:
+            - containerPort: 8080
+          volumeMounts:
+            - name: jenkins-home
+              mountPath: /var/jenkins_home
+      volumes:
+        - name: jenkins-home
+          persistentVolumeClaim:
+            claimName: jenkins-pvc1
+
+apiVersion: v1
+kind: Service
+metadata:
+  name: myapp-service
+spec:
+  type: LoadBalancer
+  selector:
+    app: jenkins1
+  ports:
+  - protocol: TCP
+    port: 80          # This is the port exposed to the outside world
+    targetPort: 8080  # This is your container's port
+
+
+
+apiVersion: v1
+kind: PersistentVolume
+metadata:
+  name: my-static-volume1
+  labels:
+    type: local
+spec:
+  storageClassName: local-storage
+  capacity:
+    storage: 10Gi
+  accessModes:
+    - ReadWriteOnce
+  hostPath:
+    path: /opt/jenkins_data
+    type: DirectoryOrCreate
+
+
+apiVersion: v1
+kind: PersistentVolumeClaim
+metadata:
+  name: jenkins-pvc1
+spec:
+  accessModes:
+    - ReadWriteOnce
+  resources:
+    requests:
+      storage: 10Gi
+  storageClassName: local-storage # Must match the PV's StorageClass
+
+
+
