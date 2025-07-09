@@ -1,0 +1,7 @@
+# Promql for imagepull backoff
+kube_pod_container_status_waiting_reason{reason="ImagePullBackOff"} > 0
+
+# CPU Query (Exceeds 10m with Pod Name)
+sum by (pod) (rate(container_cpu_usage_seconds_total{container!="",pod!="",namespace!="", container!="POD"}[1m])) > 0.01
+
+#
