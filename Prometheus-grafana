@@ -1,0 +1,52 @@
+1.Install the helm 
+
+snap install helm --classic
+
+2.adding Prometheus community to the helm repository 
+
+
+helm repo add prometheus-community https://prometheus-community.github.io/helm-charts
+
+his command tells Helm (a Kubernetes package manager) to add a new software source (called a "repository") named prometheus-community.
+This repo contains Helm charts for tools like Prometheus, Alertmanager, and Grafana, which are used for monitoring and alerting in Kubernetes.
+
+3.updating the repository
+
+helm repo update
+
+4.Creating namespace monitoring 
+
+helm install monitoring prometheus-community/kube-prometheus-stack --namespace monitoring --create-namespace
+
+5.-l "release=monitoring": Applies a label selector, filtering the Pods to only those that have the label release=monitoring  
+
+kubectl --namespace monitoring get pods -l "release=monitoring"
+
+6.getting all the pods that are in namespace monitoring 
+
+kubectl get pods -n monitoring
+
+7.use to get the password of the Grafana 
+
+kubectl get secret -n monitoring monitoring-grafana -o jsonpath="{.data.admin-password}" | base64 --decode ; echo
+
+8.Edit the service file of Grafana and change the type to LoadBalancer because we cannot access if type is cluster-ip
+
+kubectl edit svc -n monitoring monitoring-grafana
+
+9.Get the endpoint(External ip) 
+
+kubectl get svc -n monitoring monitoring-grafana
+
+copy the external ip and paste it in the browser with port 80
+
+
+
+-------------------------------installation of prometheus----------------------------------------------------------------
+
+
+kubectl edit svc -n monitoring monitoring-kube-prometheus-prometheus    (change type --->LoadBlancer )
+
+kubectl get svc -n monitoring monitoring-kube-prometheus-prometheus
+
+kubectl get pods -n kube-system      ----->to get pods which are created in kube-system namepsace
